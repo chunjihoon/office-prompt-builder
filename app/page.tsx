@@ -46,17 +46,18 @@ function Select({
 }
 
 export default function Home() {
-  const [purpose, setPurpose] = useState<EmailPurpose>();
-  const [tone, setTone] = useState<Tone>("공손");
-  const [length, setLength] = useState<Length>("보통");
-  const [audience, setAudience] = useState<Audience>("동료");
+  const [purpose, setPurpose] = useState<EmailPurpose>(PURPOSES[0] ?? "진행상황 확인");
+  const [tone, setTone] = useState<Tone>(TONES[0]);
+  const [length, setLength] = useState<Length>(LENGTHS[1] ?? LENGTHS[0]); // 보통이 2번째면
+  const [audience, setAudience] = useState<Audience>(AUDIENCES[0]);
+  const [subjectStyle, setSubjectStyle] = useState<SubjectStyle>(SUBJECT_STYLES[0]);
+
   const [context, setContext] = useState("");
   const [copied, setCopied] = useState(false);
 
   const [recipientName, setRecipientName] = useState("");
   const [recipientTitle, setRecipientTitle] = useState("");
 
-  const [subjectStyle, setSubjectStyle] = useState<SubjectStyle>("요청");
   const [deadline, setDeadline] = useState("");
   const [deliverable, setDeliverable] = useState("");
 
